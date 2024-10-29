@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dutq2du82k7w8"]
+
+[ext_resource type="Texture2D" uid="uid://e4nvq2t7o82" path="res://assets/char_a_p1/char_a_p1_0bas_humn_v01.png" id="1_1r7ol"]
+[ext_resource type="Script" path="res://scenes/npcs/npc_1.gd" id="1_1un2w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfcbq"]
+radius = 30.0
+
+[node name="NPC1" type="Area2D"]
+script = ExtResource("1_1un2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1r7ol")
+hframes = 8
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xfcbq")
+
+[node name="dia" type="Label" parent="."]
+visible = false
+offset_left = -47.0
+offset_top = -51.0
+offset_right = 50.0
+offset_bottom = -28.0
+text = "Hello player!"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

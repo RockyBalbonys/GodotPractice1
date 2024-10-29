@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct0s32hb0b0j6"]
+[gd_scene load_steps=4 format=3 uid="uid://ct0s32hb0b0j6"]
 
 [ext_resource type="PackedScene" uid="uid://bvvxleammv3ln" path="res://scenes/player.tscn" id="1_jj8if"]
-[ext_resource type="PackedScene" uid="uid://dsy6rodptr6sp" path="res://scenes/tile_map_layer.tscn" id="2_b0of3"]
+[ext_resource type="PackedScene" uid="uid://dutq2du82k7w8" path="res://scenes/npcs/npc_1.tscn" id="3_74frm"]
+[ext_resource type="PackedScene" uid="uid://8f15vk2ne7ap" path="res://scenes/world.tscn" id="3_i8eak"]
 
 [node name="level" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_jj8if")]
-z_index = 1
 position = Vector2(222, 127)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-2, -1)
 position_smoothing_enabled = true
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_b0of3")]
-z_index = -10
+[node name="World" parent="." instance=ExtResource("3_i8eak")]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPC1" parent="NPCs" instance=ExtResource("3_74frm")]
+position = Vector2(354, 133)
